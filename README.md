@@ -1,0 +1,3 @@
+# FanML
+
+AU TinyML projekt.
