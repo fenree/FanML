@@ -1,5 +1,10 @@
 #include "sensor.h"
 
+void sensorInterrupt() 
+{
+	sensorReady = true;
+}
+
 void start_sensor(void) {
 	uint8_t tx[4][2] = {
 		{ ADXL345_REG_BW_RATE,     0x0F }, // 3200 Hz

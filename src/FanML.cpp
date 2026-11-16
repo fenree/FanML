@@ -20,11 +20,23 @@ void setup() {
   SPI.setDataMode(SPI_MODE3);
 
   start_sensor();  
+
+  pinMode(S3, INPUT);
+  attachInterrupt(S3, sensorInterrupt, RISING);
 }
 
 void loop() {
 	read_sensor();
     delay( 1000 );
+
+    if (!sensorReady) {
+        delay(1);
+        return;
+    }
+
+    noInterrupts();
+    sensorReady = false;
+    interrupts();
+
+    ADXL345_DATA data = read_sensor();
 }
-
-

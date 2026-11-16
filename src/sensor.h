@@ -42,7 +42,9 @@ transmissions and the new register must be addressed separately.*/
 
 typedef struct { int16_t x,y,z; } ADXL345_DATA;
 
+volatile bool sensorReady = false;
 void start_sensor(void);
 ADXL345_DATA read_sensor(void);
 
+void sensorInterrupt();
 #endif // SENSOR_H_
